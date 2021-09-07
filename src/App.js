@@ -3,9 +3,10 @@ import Home from './pages/Home'
 import { Container } from 'react-bootstrap';
 function App() {
   return (
-    <Container>
-      <Home/>
+    <Container style={{ height:"inherit", width:"inherit" , justifyContent: 'center', alignItems: 'center'}}>
+        <Home/>
     </Container>
+       
   );
 }
 

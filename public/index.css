@@ -1,8 +1,15 @@
+@font-face {
+    font-family: Segoe UI;
+    src: url(./font/Segoe\ UI.woff);
+}
+body {
+    height: 100vh;
+    background-color: #121730; 
+}
 #root {
     width: 100vw ; 
-    height:100vh ; 
-    display: block ;
+    height: 100% ; 
     overflow: hidden auto; 
     background-color: #121730; 
-    color: white
+    color: white;
 }
