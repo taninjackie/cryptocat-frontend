@@ -41,6 +41,7 @@ const MarketTrade = () =>{
                     </thead>
                     <br/>
                     <tbody>
+                        
                         <tr style={{textIndent:"250px"}}>
                         <td><h3>Bitcoin</h3></td>
                         <td>50000$</td>

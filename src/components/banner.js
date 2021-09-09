@@ -23,7 +23,7 @@ const Banner = () =>{
                     src="Crypto Cat Icon.jpg"
                     style={{
                         borderRadius: "102px",
-                        backgroundBlendMode: "luminosity"
+                        filter: "grayscale()"
                     }}
                 />  
             </Col>
