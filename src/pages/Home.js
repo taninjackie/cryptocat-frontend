@@ -1,26 +1,36 @@
 import React from "react"
-import {Container} from "react-bootstrap"
 import Banner from "../components/banner"
-import Body1 from "../components/body1"
+import BodyHome from "../components/bodyHome"
 import MarketTrade from "../components/marketTrade"
+//import MarketDataWidget from "../components/marketDataWidget"
 import Footer from "../components/footer"
 const containerStyle = {
     display: "flex" , 
     flexDirection: "column",
     boxSizing: "border-box",
     width: "100%",
-    marginRight: "auto",
-    maxWidth: "1000px",
+    margin: "0 auto",
+    maxWidth: "fit-content",
+}
+
+const DetailHome = () =>{
+    const DetailHomeStyle = {
+        margin : "-50px auto"
+    }
+    return(
+        <h2 style={DetailHomeStyle}>A Demo Crypto Currency Trading Platform</h2>
+    )
 }
 
 const Home = () =>{
     return (
-    <Container style={containerStyle}>
+    <div style={containerStyle}>
         <Banner/>
-        <Body1/>
+        <BodyHome/>
         <MarketTrade/>
+        <DetailHome/>
         <Footer/>
-    </Container>
+    </div>
     )
 }
 

@@ -1,25 +1,20 @@
-import { Container } from "react-bootstrap"
-
 const ContainerStyle = {
-    width: "100vw",
-    height: "100px",
+    width: "100%",
+    height: "50px",
     bottom: "0",
     background : "rgba(146, 141, 209, 0.15)",
-    position: "fixed",
+    position : "fixed",
     display: "flex",
     flexDirection: "row",
-
 }
 
 const Footer = () =>{
     return (
-        <Container style={ContainerStyle}>  
-            <h3 style={{paddingTop:"15px",marginLeft:"auto",marginRight:"auto",paddingLeft:"400px"}}>Contact US</h3>
-            <h3 style={{paddingTop:"15px",marginLeft:"auto",marginRight:"auto",paddingLeft:"500px" , paddingRight:"350px"}}>About US</h3>
-        </Container>
+        <div id="footer" style={ContainerStyle}>  
+            <h4 style={{whiteSpace:"nowrap",margin:"12px auto auto auto",paddingLeft:"400px"}}>Contact US</h4>
+            <h4 style={{whiteSpace:"nowrap",margin:"12px auto auto auto",paddingRight:"400px"}}>About US</h4>
+        </div>
     )
-    
-
 }
 
 export default Footer

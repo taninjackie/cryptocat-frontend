@@ -13,3 +13,18 @@ body {
     background-color: #121730; 
     color: white;
 }
+
+#root::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+
+@media only screen and (max-width: 1200px) {
+    /* For mobile phones: */
+    #root{
+        overflow: auto auto;
+    }
+    #footer{
+        visibility: hidden;
+    }
+  }

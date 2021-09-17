@@ -1,4 +1,4 @@
-import { Col , Container , Figure } from "react-bootstrap"
+import { Col , Figure } from "react-bootstrap"
 
 const bannerStyle = {
     width : "100vw",
@@ -14,7 +14,7 @@ const bannerStyle = {
 
 const Banner = () =>{
     return(
-        <Container style={bannerStyle}>
+        <div style={bannerStyle}>
             <Col>
                 <Figure.Image
                     width={150}
@@ -28,7 +28,7 @@ const Banner = () =>{
                 />  
             </Col>
             <Col><h1 style={{marginLeft : "50px" , fontSize : "60px"}}>Crypto Cat</h1></Col>
-        </Container>
+        </div>
     )
 }
 
