@@ -1,7 +1,8 @@
 import './App.css';
 import Home from './pages/Home'
+import Login from './pages/Login';
+import Register from './pages/Register';
 //import Trading from './pages/Trading';
-import DemoAccount from './pages/DemoAccount';
 import {
   BrowserRouter as Router
   , Switch
@@ -17,11 +18,12 @@ function App() {
             <Home />
           </Route>
           <Route path="/register">
-            <DemoAccount />
+            <Register />
           </Route>
-          
+          <Route path="/login">
+            <Login/>
+          </Route>
         </Switch>
-
       </div>
     </Router>
   );

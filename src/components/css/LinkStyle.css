@@ -1,9 +1,10 @@
 a.login_now {
     color: #377aa7;
     text-decoration:none;
+    cursor: pointer;
 }
 a.login_now:hover{
-    color:rgb(24, 150, 13)
+    color:rgb(24, 150, 13);
 }
 
 

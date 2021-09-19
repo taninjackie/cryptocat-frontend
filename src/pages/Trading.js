@@ -1,6 +1,6 @@
 //import { Container } from "react-bootstrap"
 import Banner from "../components/banner"
-import TradingView from "../components/tradingview"
+import TradingView from "../components/tradingView"
 const containerStyle = {
     display: "flex" , 
     flexDirection: "column",

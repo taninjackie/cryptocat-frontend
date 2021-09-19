@@ -9,8 +9,10 @@ const InsideContainerStyle = {
     display : "flex",
     flexDirection : "column",
     width: "100%",
-    margin: "60px auto",
+    margin : "60px auto",
     maxWidth: "fit-content",
+    alignItems : "center"
+    
 }
 
 /*
@@ -37,11 +39,17 @@ const MarketTrade = () =>{
 
 ]
     const CoinRow  = []
-
+    CoinRow.push(
+        <div style={{display:"flex" , flexDirection:"row"}} key={"columnName"}>
+                <h3 >Name</h3>
+                <h3 style={{width:"100px",marginLeft:"250px",textAlign: "center"}}>LastPrice</h3>
+                <h3 style={{width:"100px",marginLeft:"250px",textAlign: "center"}}>DayChange</h3>
+        </div>
+    )
     CoinList.map(coin =>{
         CoinRow.push(
             <div style={{display:"flex" , flexDirection:"row"}} key={coin.Symbol}>
-                <h3 style={{textAlign: "center"}}>{coin.Symbol}</h3>
+                <h3 >{coin.Symbol}</h3>
                 <h3 style={{width:"100px",marginLeft:"250px",textAlign: "center"}}>{coin.LastPrice}</h3>
                 <h3 style={{width:"100px",marginLeft:"250px",textAlign: "center"}}>{coin.DayChange}</h3>
             </div>
@@ -52,7 +60,7 @@ const MarketTrade = () =>{
     return (
         <div style={MarketTradeContainerStyle}>
             <div style={InsideContainerStyle}>
-                <h1>Market Trade</h1>
+                <h1 style={{marginLeft:"-580px"}}>Market Trade</h1>
                     {CoinRow}
                 <br/> 
                 <h3 style={{margin : "0 auto"}}>view more {'>'}</h3>

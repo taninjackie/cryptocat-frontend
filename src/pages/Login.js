@@ -1,6 +1,7 @@
 import Banner from "../components/banner"
-import RegisterForm from "../components/registerForm"
+import { LoginForm } from "../components/form"
 import Footer from "../components/footer"
+
 const containerStyle = {
     display: "flex" , 
     flexDirection: "column",
@@ -10,14 +11,14 @@ const containerStyle = {
     maxWidth: "fit-content",
 }
 
-const DemoAccount = () =>{
+const Login = () =>{
     return(
         <div style = {containerStyle}>
             <Banner/>
-            <RegisterForm/>
+            <LoginForm/>
             <Footer/>
         </div> 
     )
 }
 
-export default DemoAccount
+export default Login

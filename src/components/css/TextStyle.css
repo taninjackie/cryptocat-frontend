@@ -1,0 +1,13 @@
+#fgpwText , #regText{
+    color : rgb(34,57,172);
+    font-size: small;
+    text-decoration: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#fgpwText:hover , #regText:hover{
+    color : rgb(58, 180, 218);
+    text-decoration: underline ;
+    text-decoration-color: rgb(58, 180, 218) ;
+}

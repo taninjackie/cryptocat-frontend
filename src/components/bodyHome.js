@@ -11,7 +11,7 @@ const boxStyle = {
     marginRight : "100px", 
 }
 
-const DemoAccountButtonChange = (e) =>{
+const ButtonChange = (e) =>{
     if(e._reactName === "onMouseEnter"){
         e.target.style.background = "white"
         e.target.style.color = "black"
@@ -28,8 +28,13 @@ const BodyHome = () =>{
             <div style={boxStyle}>
                <h1>Buy & sell Crypto</h1>
                <Link style={{textDecoration:"none"}} to="/register">
-                <Button onMouseEnter={DemoAccountButtonChange} onMouseOut={DemoAccountButtonChange} style={{top:"10px" , background:"#66687E"}} variant="contained">
+                <Button onMouseEnter={ButtonChange} onMouseOut={ButtonChange} style={{top:"10px" , background:"#66687E"}} variant="contained">
                     Demo Account
+                </Button> 
+                </Link>
+                <Link style={{textDecoration:"none" , marginLeft:"20px"}} to="/login">
+                <Button onMouseEnter={ButtonChange} onMouseOut={ButtonChange} style={{top:"10px" , background:"#66687E"}} variant="contained">
+                    Login
                 </Button> 
                 </Link>
             </div> 

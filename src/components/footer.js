@@ -6,6 +6,7 @@ const ContainerStyle = {
     position : "fixed",
     display: "flex",
     flexDirection: "row",
+    cursor : "pointer"
 }
 
 const Footer = () =>{
