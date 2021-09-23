@@ -160,7 +160,8 @@ const registerForm = createSlice({
         case "confirmPassword": {
           if (
             state.userForm.confirmPassword !== "" &&
-            state.userForm.confirmPassword === state.userForm.password
+            state.userForm.confirmPassword === state.userForm.password &&
+            state.userForm.confirmPassword.length >= 8
           )
             if (typeCheck("String", state.userForm.confirmPassword)) {
               state.isConfirmPassword = true;
