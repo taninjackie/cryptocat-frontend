@@ -29,7 +29,7 @@ const registerForm = createSlice({
   name: "registerForm",
   initialState,
   reducers: {
-    setRegisterFormState: (state, action) => {
+    setRegisterFormState: (state = initialState, action) => {
       switch (action.payload[0]) {
         case "email": {
           state.userForm = { ...state.userForm, email: action.payload[1] };
@@ -61,7 +61,7 @@ const registerForm = createSlice({
       //console.log(state.userForm)
       //console.log(state.userForm);
     },
-    Validation: (state, action) => {
+    Validation: (state = initialState, action) => {
       //console.log(action.payload)
       var massage,
         color = "";
@@ -79,6 +79,7 @@ const registerForm = createSlice({
                 color = "red";
               }
             } else {
+              state.isEmail = false;
               massage = "invalid";
               color = "red";
             }
@@ -99,14 +100,17 @@ const registerForm = createSlice({
                   massage = "valid";
                   color = "green";
                 } else {
+                  state.isFirstName = false;
                   massage = "invalid";
                   color = "red";
                 }
               else {
+                state.isFirstName = false;
                 massage = "invalid";
                 color = "red";
               }
             else {
+              state.isFirstName = false;
               massage = "invalid";
               color = "red";
             }
@@ -126,14 +130,17 @@ const registerForm = createSlice({
                   massage = "valid";
                   color = "green";
                 } else {
+                  state.isLastName = false;
                   massage = "invalid";
                   color = "red";
                 }
               else {
+                state.isLastName = false;
                 massage = "invalid";
                 color = "red";
               }
             else {
+              state.isLastName = false;
               massage = "invalid";
               color = "red";
             }
@@ -151,6 +158,7 @@ const registerForm = createSlice({
               massage = "valid";
               color = "green";
             } else {
+              state.isPassword = false;
               massage = "invalid";
               color = "red";
             }
@@ -158,6 +166,7 @@ const registerForm = createSlice({
             state.userForm.password.length > 0 &&
             state.userForm.password.length < 8
           ) {
+            state.isPassword = false;
             massage = "should be at least 8 characters";
             color = "red";
           }
@@ -179,10 +188,16 @@ const registerForm = createSlice({
               massage = "valid";
               color = "green";
             } else {
+              state.isConfirmPassword = false;
               massage = "invalid";
               color = "red";
             }
-          else {
+          else if (state.userForm.confirmPassword === "") {
+            state.isConfirmPassword = false;
+            massage = "";
+            color = "";
+          } else {
+            state.isConfirmPassword = false;
             massage = "password not match";
             color = "red";
           }
@@ -197,9 +212,13 @@ const registerForm = createSlice({
           break;
       }
     },
+    ClearState: () => {
+      return initialState;
+    },
     Submit: (state, action) => {},
   },
 });
 
-export const { setRegisterFormState, Validation } = registerForm.actions;
+export const { setRegisterFormState, Validation, ClearState } =
+  registerForm.actions;
 export default registerForm.reducer;

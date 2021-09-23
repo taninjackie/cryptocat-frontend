@@ -1,21 +1,16 @@
-import {
-  TextField,
-  Button,
-  FormControl,
-  FormHelperText,
-} from "@mui/material";
+import { TextField, Button, FormControl, FormHelperText } from "@mui/material";
 import { styled } from "@mui/system";
 import "animate.css";
 import "./css/LinkStyle.css";
 import "./css/TextStyle.css";
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-
-
+import axios from "axios";
 //redux
 import {
   setRegisterFormState,
   Validation,
+  ClearState,
 } from "../app/reducers/registerFormSlice";
 
 
@@ -195,21 +190,39 @@ const RegisterForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
+  //get register form state in register form store
+  var regisFormObject = useSelector((state) => state.registerForm);
+
+  /*JSON.parse(
+    useSelector((state) => JSON.stringify(state.registerForm))
+  );*/
+  //const objectTest= useSelector(state => state.registerForm)
   const ToggleForm = () => {
     document.querySelector("#regisForm").className =
       "animate__animated animate__zoomOut";
+    dispatch(ClearState());
     history.push("/login");
   };
-
-  //get register form state in register form store
-  const regisFormObject = JSON.parse(
-    useSelector((state) => JSON.stringify(state.registerForm))
-  );
 
   //Register Submit
   const Submit = (e) => {
     e.preventDefault();
-    console.log(regisFormObject);
+    if (
+      regisFormObject.isEmail === true &&
+      regisFormObject.isFirstName === true &&
+      regisFormObject.isLastName === true &&
+      regisFormObject.isPassword === true &&
+      regisFormObject.isConfirmPassword === true
+    ) {
+      axios
+        .post("/api/register", regisFormObject.userForm)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
   };
 
   return (
