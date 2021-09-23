@@ -10,12 +10,9 @@ WORKDIR /usr/src/app
 COPY . .
 RUN yarn build
 
-FROM node:14-alpine
-ENV NODE_ENV=production
-COPY --from=build-stage /usr/src/app/build/ /usr/src/app/build
-WORKDIR /usr/src/app
-RUN npm install -g serve
-EXPOSE 3000
-RUN chown -R node /usr/src/app
-USER node
-CMD serve -s /usr/src/app/build -l 3000
+FROM nginx:alpine
+COPY default.conf /etc/nginx/conf.d/default.conf
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=build-stage /usr/src/app/build/ .
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
