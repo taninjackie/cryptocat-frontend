@@ -82,6 +82,7 @@ const registerForm = createSlice({
               massage = "invalid";
               color = "red";
             }
+
           state.helperText.emailMsg = {
             ...state.helperText.emailMsg,
             massage: massage,
@@ -91,12 +92,17 @@ const registerForm = createSlice({
         }
         case "fname": {
           if (state.userForm.firstName !== "")
-            if (typeCheck("String", state.userForm.firstName))
-              if (isValidUTF8(state.userForm.firstName)) {
-                state.isFirstName = true;
-                massage = "valid";
-                color = "green";
-              } else {
+            if (state.userForm.firstName.length < 50)
+              if (typeCheck("String", state.userForm.firstName))
+                if (isValidUTF8(state.userForm.firstName)) {
+                  state.isFirstName = true;
+                  massage = "valid";
+                  color = "green";
+                } else {
+                  massage = "invalid";
+                  color = "red";
+                }
+              else {
                 massage = "invalid";
                 color = "red";
               }
@@ -113,12 +119,17 @@ const registerForm = createSlice({
         }
         case "lname": {
           if (state.userForm.lastName !== "")
-            if (typeCheck("String", state.userForm.lastName))
-              if (isValidUTF8(state.userForm.lastName)) {
-                state.isLastName = true;
-                massage = "valid";
-                color = "green";
-              } else {
+            if (state.userForm.lastName.length < 50)
+              if (typeCheck("String", state.userForm.lastName))
+                if (isValidUTF8(state.userForm.lastName)) {
+                  state.isLastName = true;
+                  massage = "valid";
+                  color = "green";
+                } else {
+                  massage = "invalid";
+                  color = "red";
+                }
+              else {
                 massage = "invalid";
                 color = "red";
               }
@@ -171,8 +182,7 @@ const registerForm = createSlice({
               massage = "invalid";
               color = "red";
             }
-          else
-          {
+          else {
             massage = "password not match";
             color = "red";
           }
