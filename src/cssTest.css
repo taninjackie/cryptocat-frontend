@@ -1,0 +1,10 @@
+#testcontainer {
+  width: 500px;
+  height: 500px;
+  background: chocolate;
+}
+#testcontainer .root {
+  margin: 0px auto;
+}
+
+/*# sourceMappingURL=cssTest.css.map */

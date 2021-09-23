@@ -4,6 +4,7 @@ import BodyHome from "../components/bodyHome"
 import MarketTrade from "../components/marketTrade"
 //import MarketDataWidget from "../components/marketDataWidget"
 import Footer from "../components/footer"
+import './css/home.css'
 const containerStyle = {
     display: "flex" , 
     flexDirection: "column",
@@ -18,7 +19,7 @@ const DetailHome = () =>{
         margin : "-50px auto"
     }
     return(
-        <h2 style={DetailHomeStyle}>A Demo Crypto Currency Trading Platform</h2>
+        <h2 id="detailhome" style={DetailHomeStyle}>A Demo Crypto Currency Trading Platform</h2>
     )
 }
 

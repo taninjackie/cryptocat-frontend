@@ -1,18 +1,22 @@
-import './App.css';
-import Home from './pages/Home'
-import Login from './pages/Login';
-import Register from './pages/Register';
+import "./App.css";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 //import Trading from './pages/Trading';
-import {
-  BrowserRouter as Router
-  , Switch
-  , Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {Test} from "./pages/Test";
 
 function App() {
   return (
     <Router>
-      <div style={{ height: "inherit", width: "inherit", justifyContent: 'center', alignItems: 'center' }}>
+      <div
+        style={{
+          height: "inherit",
+          width: "inherit",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Switch>
           <Route exact path="/">
             <Home />
@@ -21,7 +25,10 @@ function App() {
             <Register />
           </Route>
           <Route path="/login">
-            <Login/>
+            <Login />
+          </Route>
+          <Route path="/test">
+            <Test/>
           </Route>
         </Switch>
       </div>

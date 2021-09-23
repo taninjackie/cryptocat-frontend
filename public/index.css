@@ -12,6 +12,8 @@ body {
     overflow: hidden auto; 
     background-color: #121730; 
     color: white;
+    font-family: Segoe UI;
+    scroll-behavior: smooth;
 }
 
 #root::-webkit-scrollbar { /* WebKit */
@@ -24,7 +26,30 @@ body {
     #root{
         overflow: auto auto;
     }
+  }
+
+@media only screen and (max-width: 1900px) {
+    /* For mobile phones: */
     #footer{
         visibility: hidden;
     }
+    #detailhome{
+        visibility: hidden;
+    }
+    #marketTradeTable{
+        padding-left: 150px;
+    }
   }
+
+  @media only screen and (max-width: 776px) {
+    #marketTradeTable{
+        padding-left: 150px;
+    }
+  }
+  @media only screen and (max-width: 460px) {
+    #marketTradeTable{
+        padding-left: 150px;
+    }
+  }
+
+  
