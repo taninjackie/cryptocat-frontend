@@ -2,6 +2,7 @@ version: '3.4'
 
 services:
   cryptocat-frontend:
+    container_name: cryptocat-frontend
     image: cryptocat-frontend
     build:
       context: .
@@ -11,6 +12,7 @@ services:
     ports:
       - 80:80
   cryptocat-backend:
+    container_name: cryptocat-backend
     image: cryptocat-backend
     build: ../cryptocat-backend
     networks:
