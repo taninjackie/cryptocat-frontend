@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import validator from "validator";
 import isValidUTF8 from "utf-8-validate";
 import { typeCheck } from "type-check";
+import axios from "axios";
 
 const initialState = {
   userForm: {
@@ -215,10 +216,28 @@ const registerForm = createSlice({
     ClearState: () => {
       return initialState;
     },
-    Submit: (state, action) => {},
+    Submit: (state, action) => {
+      action.payload.preventDefault();
+      if (
+        state.isEmail === true &&
+        state.isFirstName === true &&
+        state.isLastName === true &&
+        state.isPassword === true &&
+        state.isConfirmPassword === true
+      ) {
+        axios
+          .post("/api/register", state.userForm)
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+    },
   },
 });
 
-export const { setRegisterFormState, Validation, ClearState } =
+export const { setRegisterFormState, Validation, ClearState ,Submit } =
   registerForm.actions;
 export default registerForm.reducer;

@@ -5,14 +5,14 @@ import "./css/LinkStyle.css";
 import "./css/TextStyle.css";
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+
 //redux
 import {
   setRegisterFormState,
   Validation,
   ClearState,
+  Submit,
 } from "../app/reducers/registerFormSlice";
-
 
 const LoginFormStyle = {
   display: "flex",
@@ -137,29 +137,31 @@ const LoginForm = () => {
       </h2>
       <div style={FormItemStyle}>
         <div style={UserFormItem}>
-          <FormControl>
-            <h4>Email</h4>
-            <FormTextField
-              color="warning"
-              InputLabelProps={TextFieldStyle}
-              required
-              label="Email"
-              size="small"
-              className="textfield"
-              type="email"
-            />
-            <h4>Password</h4>
-            <FormTextField
-              InputLabelProps={TextFieldStyle}
-              required
-              label="Password"
-              size="small"
-              type="password"
-            />
-            <Button style={ButtonStyle.LoginBT} variant="contained">
-              Login
-            </Button>
-          </FormControl>
+          <form>
+            <FormControl>
+              <h4>Email</h4>
+              <FormTextField
+                color="warning"
+                InputLabelProps={TextFieldStyle}
+                required
+                label="Email"
+                size="small"
+                className="textfield"
+                type="email"
+              />
+              <h4>Password</h4>
+              <FormTextField
+                InputLabelProps={TextFieldStyle}
+                required
+                label="Password"
+                size="small"
+                type="password"
+              />
+              <Button style={ButtonStyle.LoginBT} variant="contained">
+                Login
+              </Button>
+            </FormControl>
+          </form>
           <b id="fgpwText">Forgot Password?</b>
           <b
             id="regText"
@@ -205,25 +207,9 @@ const RegisterForm = () => {
   };
 
   //Register Submit
-  const Submit = (e) => {
-    e.preventDefault();
-    if (
-      regisFormObject.isEmail === true &&
-      regisFormObject.isFirstName === true &&
-      regisFormObject.isLastName === true &&
-      regisFormObject.isPassword === true &&
-      regisFormObject.isConfirmPassword === true
-    ) {
-      axios
-        .post("/api/register", regisFormObject.userForm)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }
-  };
+  /*const Submit = (e) => {
+    
+  };*/
 
   return (
     <div
@@ -244,7 +230,7 @@ const RegisterForm = () => {
         <div style={UserFormItem}>
           <form
             onSubmit={(e) => {
-              Submit(e);
+              dispatch(Submit(e))
             }}
           >
             <FormControl>
